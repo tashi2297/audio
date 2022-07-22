@@ -1,18 +1,36 @@
+
+--
+layout: master
+# Note that below the 'for my_page in pages' and 'if my_page.title'... should be on the same line to remove whitespace between li elements.
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: home
----
+<div class="home">
 
+  <p>{{ site.index_page_text }}</p>
 
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#009578">
-        <link rel="stylesheet" href="/src/master.css">
-        <link rel="manifest" href="/manifest.json">
-        <link rel="apple-touch-icon" href="/images/180px.png">
-        <script src="/index.js"></script>
-</head>
+  <ul class="post-list">
+    {% assign pages = site.pages | sort: 'page_rank' %}
+    {% for my_page in pages %}{% if (my_page.section_title != null) and my_page.type == 'stop' %}<li>
+        <a class="post-link" href="{{ my_page.url | prepend: site.baseurl }}" style="background-image: url('{{ site.baseurl }}{{ site.headphones_icon_color }}');">
+          <span class="post-item">{{ my_page.stop_id }}</span>
+        </a>
+      </li>{% endif %}{% endfor %}
+  </ul>
 
+<!--
+
+For reference: This is a list of all the stops and titles in this audio guide
+
+{% assign pages = site.pages | sort: 'page_rank' %}
+    {% for my_page in pages %}{% if (my_page.section_title != null) and my_page.type == 'stop' %}
+Stop #: {{ my_page.stop_id }}
+Section Title: {{ my_page.section_title }}
+Title: {{ my_page.title }}
+      {% endif %}{% endfor %}
+
+-->
+  
+<!--
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+-->
+</div>
