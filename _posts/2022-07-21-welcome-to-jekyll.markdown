@@ -5,16 +5,6 @@ date:   2022-07-21 19:29:14 +0530
 categories: jekyll update
 ---
 
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#009578">
-        <title>PWA</title>
-        <link rel="stylesheet" href="src/master.css">
-        <link rel="manifest" href="manifest.json">
-        <link rel="apple-touch-icon" href="images/180px.png">
-</head>
-    
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
 Jekyll requires blog post files to be named according to the following format:
